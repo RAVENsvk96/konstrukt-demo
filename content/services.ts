@@ -1,37 +1,32 @@
-import {
-  Wrench,
-  Disc,
-  CircleDot,
-  ScanSearch,
-} from "lucide-react";
+import type { Service } from "@/types/services";
 
-export const services = [
+export const services: Service[] = [
   {
     title: "Výmena oleja a filtrov",
     description:
       "Používame kvalitné oleje a filtre podľa odporúčania výrobcu.",
     price: "od 59 €",
-    icon: Wrench,
+    icon: "wrench",
   },
   {
     title: "Brzdy a podvozok",
     description:
       "Kontrola a oprava bŕzd, tlmičov a podvozka.",
     price: "od 79 €",
-    icon: Disc,
+    icon: "disc",
   },
   {
     title: "Pneuservis",
     description:
       "Prezutie, vyváženie a uskladnenie pneumatík.",
     price: "od 25 €",
-    icon: CircleDot,
+    icon: "circle-dot",
   },
   {
     title: "Diagnostika vozidla",
     description:
       "Kompletná diagnostika riadiacich jednotiek.",
     price: "od 30 €",
-    icon: ScanSearch,
+    icon: "scan-search",
   },
 ];

@@ -3,7 +3,10 @@
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/layout/SectionHeading";
-import { services } from "@/data/services";
+
+import { services } from "@/content/services";
+import { icons } from "@/lib/icons";
+
 import { motion } from "framer-motion";
 
 export default function Services() {
@@ -19,7 +22,7 @@ export default function Services() {
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => {
-            const Icon = service.icon;
+            const Icon = icons[service.icon];
 
             return (
               <motion.div
@@ -35,15 +38,19 @@ export default function Services() {
                     <Icon className="h-6 w-6 text-orange-500" />
                   </div>
 
-                  <h3 className="text-lg font-semibold">{service.title}</h3>
+                  <h3 className="text-lg font-semibold">
+                    {service.title}
+                  </h3>
 
                   <p className="mt-3 flex-1 text-sm leading-6 text-zinc-400">
                     {service.description}
                   </p>
 
-                  <p className="mt-6 font-semibold text-orange-500">
-                    {service.price}
-                  </p>
+                  {service.price && (
+                    <p className="mt-6 font-semibold text-orange-500">
+                      {service.price}
+                    </p>
+                  )}
 
                   <Button href="#kontakt" className="mt-6 w-full px-4 py-2">
                     Objednať

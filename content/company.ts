@@ -1,4 +1,6 @@
-export const company = {
+import type { Company } from "@/types/company";
+
+export const company: Company = {
   name: "AutoServis",
 
   slogan: "Moderný autoservis v Nitre",
@@ -16,10 +18,8 @@ export const company = {
     "Moderný autoservis v Nitre. Výmena oleja, brzdy, pneuservis, diagnostika a ďalšie služby.",
 
   phone: "+421 900 123 456",
-  phoneClean: "+421900123456",
 
   email: "info@autoservis.sk",
-  emailClean: "info@autoservis.sk",
 
   address: "Nitra, Slovensko",
 
