@@ -1,6 +1,7 @@
 import type { Company } from "@/types/company";
 
 export const company: Company = {
+
   name: "AutoServis",
 
   slogan: "Moderný autoservis v Nitre",
