@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 import Section from "@/components/layout/Section";
 import SectionHeading from "@/components/layout/SectionHeading";
-import type { FAQItem } from "@/types/faq";
 import { faq } from "@/content/faq";
 
 export default function FAQ() {
