@@ -1,4 +1,6 @@
-export const reviews = [
+import type { Review } from "@/types/review";
+
+export const reviews: Review[] = [
   {
     name: "Martin K.",
     text: "Bol som prvýkrát a určite nie naposledy. Auto opravili rýchlo a všetko mi vopred vysvetlili.",
