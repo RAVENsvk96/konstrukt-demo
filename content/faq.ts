@@ -1,4 +1,6 @@
-export const faq = [
+import type { FAQItem } from "@/types/faq";
+
+export const faq: FAQItem[] = [
   {
     question: "Musím sa objednať vopred?",
     answer:
