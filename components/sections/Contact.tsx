@@ -1,7 +1,7 @@
 "use client";
 
 import SectionHeading from "@/components/layout/SectionHeading";
-import { company } from "@/data/company";
+import { company } from "@/content/company";
 import { motion } from "framer-motion";
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
@@ -67,7 +67,7 @@ export default function Contact() {
                   icon: Phone,
                   label: "Telefón",
                   value: company.phone,
-                  href: `tel:${company.phoneClean}`,
+                  href: `tel:${company.phone.replace(/\s/g, "")}`,
                 },
                 {
                   icon: Mail,

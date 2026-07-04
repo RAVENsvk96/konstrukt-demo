@@ -1,5 +1,5 @@
 import SectionHeading from "@/components/layout/SectionHeading";
-import { whyUs } from "@/data/whyUs";
+import { whyUs } from "@/content/whyUs";
 
 export default function WhyUs() {
   return (

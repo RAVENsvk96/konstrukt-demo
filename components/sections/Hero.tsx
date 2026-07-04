@@ -1,8 +1,8 @@
 "use client";
 
 import Button from "@/components/ui/Button";
-import { company } from "@/data/company";
-import { heroFeatures } from "@/data/heroFeatures";
+import { company } from "@/content/company";
+import { heroFeatures } from "@/content/heroFeatures";
 import { motion } from "framer-motion";
 import { Phone, Star } from "lucide-react";
 import Image from "next/image";
@@ -57,7 +57,7 @@ export default function Hero() {
             <Button href="#kontakt">Objednať termín</Button>
 
             <a
-              href={`tel:${company.phoneClean}`}
+              href={`tel:${company.phone.replace(/\s/g, "")}`}
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 px-6 py-3 text-center font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-orange-500/60 hover:bg-zinc-900"
             >
               <Phone className="h-5 w-5 text-orange-500" />

@@ -1,4 +1,4 @@
-import { company } from "@/data/company";
+import { company } from "@/content/company";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";

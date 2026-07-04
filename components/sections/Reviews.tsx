@@ -1,7 +1,7 @@
 "use client";
 
 import SectionHeading from "@/components/layout/SectionHeading";
-import { reviews } from "@/data/reviews";
+import { reviews } from "@/content/reviews";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 

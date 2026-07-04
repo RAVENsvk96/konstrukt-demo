@@ -1,5 +1,5 @@
 import Button from "@/components/ui/Button";
-import { company } from "@/data/company";
+import { company } from "@/content/company";
 
 export default function CTA() {
   return (
@@ -23,7 +23,7 @@ export default function CTA() {
             Objednať termín
           </Button>
 
-          <Button href={`tel:${company.phoneClean}`}>
+          <Button href={`tel:${company.phone.replace(/\s/g, "")}`}>
             {company.phone}
           </Button>
         </div>

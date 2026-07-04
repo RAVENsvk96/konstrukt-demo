@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { company } from "@/data/company";
+import { company } from "@/content/company";
 
 type LogoProps = {
   className?: string;

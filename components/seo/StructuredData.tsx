@@ -1,5 +1,5 @@
-import { company } from "@/data/company";
-import { faq } from "@/data/faq";
+import { company } from "@/content/company";
+import { faq } from "@/content/faq";
 
 export default function StructuredData() {
   const localBusinessSchema = {

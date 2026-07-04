@@ -1,5 +1,5 @@
 import Logo from "@/components/ui/Logo";
-import { company } from "@/data/company";
+import { company } from "@/content/company";
 
 export default function Footer() {
   return (

@@ -2,7 +2,7 @@
 
 import Button from "@/components/ui/Button";
 import Logo from "@/components/ui/Logo";
-import { navigation } from "@/data/navigation";
+import { navigation } from "@/content/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
