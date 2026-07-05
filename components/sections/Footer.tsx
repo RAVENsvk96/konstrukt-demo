@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="border-t border-zinc-800 bg-zinc-950">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-3">
         <div>
-          <Logo variant="full" className="h-20 w-auto" priority={false} />
+          <Logo className="h-20 w-auto" priority={false} />
 
           <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-400">
             Rýchle, férové a spoľahlivé opravy vozidiel v Nitrianskom kraji.

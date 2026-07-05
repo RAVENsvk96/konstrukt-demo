@@ -11,7 +11,6 @@ export const company: Company = {
 
   heroImage: "/images/hero.jpg",
   logo: "/images/logo-navbar.png",
-  logoFull: "/images/logo-full.png",
   ogImage: "/images/og-image.png",
 
   description:
