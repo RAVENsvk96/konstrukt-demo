@@ -7,17 +7,13 @@ type LogoProps = {
   className?: string;
   href?: string;
   priority?: boolean;
-  variant?: "navbar" | "full";
 };
 
 export default function Logo({
   className,
   href = "/",
   priority = true,
-  variant = "navbar",
 }: LogoProps) {
-  const logoSrc = variant === "full" ? company.logoFull : company.logo;
-
   return (
     <Link
       href={href}
@@ -25,7 +21,7 @@ export default function Logo({
       className="inline-flex items-center"
     >
       <Image
-        src={logoSrc}
+        src={company.logo}
         alt={company.name}
         width={260}
         height={90}

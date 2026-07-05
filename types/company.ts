@@ -21,7 +21,6 @@ export interface Company {
   mapUrl: string;
 
   logo: string;
-  logoFull: string;
   heroImage: string;
   ogImage: string;
 

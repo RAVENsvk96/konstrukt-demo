@@ -5,6 +5,7 @@ import { whyUs } from "@/content/whyUs";
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
+
 export default function WhyUsClinic() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-20">

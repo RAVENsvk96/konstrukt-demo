@@ -24,15 +24,16 @@ Skontroluj:
 
 ---
 
-# 2. Produkčný build
+# 2. Kontrola projektu
 
-Pred každým deployom vždy spusti:
+Pred každým deployom spusti:
 
 ```bash
 npm run build
+npm run lint
 ```
 
-Build musí prejsť bez chýb.
+Build aj lint musia prejsť bez chýb.
 
 ---
 
@@ -40,12 +41,13 @@ Build musí prejsť bez chýb.
 
 Vo Verceli otvor:
 
-Project → Settings → Environment Variables
+**Project → Settings → Environment Variables**
 
-Momentálne projekt používa:
+Projekt používa:
 
 ```env
 RESEND_API_KEY=
+CONTACT_EMAIL=
 ```
 
 Po zmene Environment Variables vytvor nový deployment (Redeploy alebo nový `git push`).
@@ -59,7 +61,7 @@ Odošli zmeny na GitHub:
 ```bash
 git add .
 git commit -m "feat: create client website"
-git push origin main
+git push
 ```
 
 Vercel automaticky vytvorí nový deployment.
@@ -71,9 +73,9 @@ Vercel automaticky vytvorí nový deployment.
 Skontroluj produkčný web:
 
 - stránka sa načíta
-- logo sa zobrazuje
-- hero obrázok sa zobrazuje
-- všetky obrázky sa načítajú
+- logo sa zobrazuje správne
+- hero obrázok sa načíta
+- všetky obrázky fungujú
 - CTA tlačidlá fungujú
 - telefónny odkaz funguje
 - emailový odkaz funguje
@@ -83,6 +85,8 @@ Skontroluj produkčný web:
 - favicon sa zobrazuje
 - deployment vo Verceli je úspešný
 
+Odporúča sa spustiť aj Lighthouse na produkčnej URL.
+
 ---
 
 # 6. Najčastejšie problémy
@@ -91,19 +95,22 @@ Skontroluj produkčný web:
 
 Skontroluj:
 
-```txt
+```text
 public/images/
 ```
 
-a správne cesty v `data/company.ts`.
+a správne cesty v:
+
+```text
+content/company.ts
+```
 
 Príklad:
 
 ```ts
 heroImage: "/images/hero.jpg",
-logo: "/images/logo-navbar.png",
-logoFull: "/images/logo-full.png",
-ogImage: "/images/og-image.png",
+logo: "/images/logo.png",
+ogImage: "/images/og-image.jpg",
 ```
 
 Skontroluj aj veľké a malé písmená v názvoch súborov.
@@ -114,8 +121,15 @@ Skontroluj aj veľké a malé písmená v názvoch súborov.
 
 Skontroluj:
 
-- `RESEND_API_KEY` vo Verceli
-- či bol po zmene premenných vytvorený nový deployment
+- `RESEND_API_KEY`
+- `CONTACT_EMAIL`
+- či bol po zmene Environment Variables vytvorený nový deployment
+
+---
+
+## Build zlyhá na Resend
+
+Skontroluj, či sa `Resend` inicializuje až po overení, že existuje `RESEND_API_KEY`.
 
 ---
 
@@ -125,7 +139,7 @@ Skontroluj:
 
 ```bash
 git status
-git push origin main
+git push
 ```
 
 Prípadne spusti nový deployment cez **Redeploy**.
