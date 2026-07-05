@@ -10,6 +10,10 @@ export const navigation: NavigationItem[] = [
     href: "#sluzby",
   },
   {
+    label: "Recenzie",
+    href: "#recenzie",
+  },
+  {
     label: "Kontakt",
     href: "#kontakt",
   },

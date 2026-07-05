@@ -13,7 +13,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={centered ? "text-center" : ""}>
-      <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+      <p className="text-sm font-semibold uppercase tracking-[0.45em] text-[#A7865A]">
         {badge}
       </p>
 

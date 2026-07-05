@@ -1,22 +1,22 @@
 export const whyUs = {
-  badge: "Prečo si vybrať nás",
-  title: "Férový autoservis bez zbytočných prekvapení",
+  badge: "Prečo NORTH",
+  title: "Precíznosť, pokoj a osobný prístup pri každej návšteve.",
 
   items: [
     {
-      title: "Rýchla diagnostika",
+      title: "Strih na mieru",
       description:
-        "Najprv zistíme skutočný problém a až potom navrhneme vhodné riešenie.",
+        "Každý strih prispôsobujeme typu vlasov, tvaru tváre a vášmu štýlu.",
     },
     {
-      title: "Jasná komunikácia",
+      title: "Pokojná atmosféra",
       description:
-        "Pred opravou viete, čo sa bude robiť a koľko to bude približne stáť.",
+        "Bez zhonu a zbytočného čakania. Chceme, aby bola každá návšteva príjemným zážitkom.",
     },
     {
-      title: "Spoľahlivý servis",
+      title: "Kvalitné produkty",
       description:
-        "Postaráme sa o údržbu, brzdy, olej, diagnostiku aj bežné opravy.",
+        "Používame overenú profesionálnu kozmetiku, ktorá podporí výsledok aj každodennú starostlivosť.",
     },
   ],
 };

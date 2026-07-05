@@ -1,37 +1,42 @@
 import type { Company } from "@/types/company";
 
 export const company: Company = {
+  name: "NORTH",
 
-  name: "AutoServis",
+  slogan: "Crafted for modern gentlemen",
 
-  slogan: "Moderný autoservis v Nitre",
+  city: "Bratislava",
 
-  city: "Nitra",
+  website: "https://barber-demo.vercel.app",
 
-  website: "https://autoservis-demo-beryl.vercel.app",
-
-  heroImage: "/images/hero.jpg",
-  logo: "/images/logo-navbar.png",
-  ogImage: "/images/og-image.png",
+  heroImage: "/images/barber-hero.jpg",
+  logo: "/images/logo.png",
+  ogImage: "/images/og-image.jpg",
 
   description:
-    "Moderný autoservis v Nitre. Výmena oleja, brzdy, pneuservis, diagnostika a ďalšie služby.",
+    "Moderné pánske kaderníctvo zamerané na precízne strihy, úpravu brady a kvalitný servis v pokojnej atmosfére.",
 
   phone: "+421 900 123 456",
 
-  email: "info@autoservis.sk",
+  email: "hello@northbarber.demo",
 
-  address: "Nitra, Slovensko",
+  address: "Bratislava, Slovensko",
 
-  openingHours: "Po – Pia • 08:00 – 17:00",
+  openingHours: "Po – Pia • 09:00 – 19:00",
 
-  openingHoursSchema: ["Mo-Fr 08:00-17:00"],
+  openingHoursSchema: ["Mo-Fr 09:00-19:00"],
 
-  mapUrl: "https://www.google.com/maps?q=Nitra&output=embed",
+  mapUrl: "https://www.google.com/maps?q=Bratislava&output=embed",
 
-  areaServed: "Nitra a okolie",
+  areaServed: "Bratislava a okolie",
 
   priceRange: "€€",
 
-  socialLinks: [],
+  socialLinks: [
+    {
+      platform: "instagram",
+      label: "Instagram",
+      href: "https://instagram.com/north.barberstudio",
+    },
+  ],
 };

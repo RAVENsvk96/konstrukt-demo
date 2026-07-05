@@ -2,31 +2,31 @@ import type { Service } from "@/types/service";
 
 export const services: Service[] = [
   {
-    title: "Výmena oleja a filtrov",
+    title: "Pánsky strih",
     description:
-      "Používame kvalitné oleje a filtre podľa odporúčania výrobcu.",
-    price: "od 59 €",
+      "Precízny strih prispôsobený tvaru tváre, vlasom a osobnému štýlu.",
+    price: "35 €",
     icon: "wrench",
   },
   {
-    title: "Brzdy a podvozok",
+    title: "Úprava brady",
     description:
-      "Kontrola a oprava bŕzd, tlmičov a podvozka.",
-    price: "od 79 €",
+      "Tvarovanie, zarovnanie a ošetrenie brady pre čistý a upravený vzhľad.",
+    price: "20 €",
     icon: "disc",
   },
   {
-    title: "Pneuservis",
+    title: "Grooming balík",
     description:
-      "Prezutie, vyváženie a uskladnenie pneumatík.",
-    price: "od 25 €",
-    icon: "circle-dot",
+      "Kompletný servis vrátane strihu, úpravy brady a finálneho stylingu.",
+    price: "50 €",
+    icon: "scan-search",
   },
   {
-    title: "Diagnostika vozidla",
+    title: "Junior strih",
     description:
-      "Kompletná diagnostika riadiacich jednotiek.",
-    price: "od 30 €",
-    icon: "scan-search",
+      "Jednoduchý a precízny strih pre mladších klientov v pokojnej atmosfére.",
+    price: "22 €",
+    icon: "circle-dot",
   },
 ];

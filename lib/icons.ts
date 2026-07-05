@@ -3,6 +3,10 @@ import {
   Disc,
   CircleDot,
   ScanSearch,
+  Scissors,
+  Sparkles,
+  UserRound,
+  Brush,
 } from "lucide-react";
 
 export const icons = {
@@ -10,4 +14,9 @@ export const icons = {
   disc: Disc,
   "circle-dot": CircleDot,
   "scan-search": ScanSearch,
+
+  scissors: Scissors,
+  sparkles: Sparkles,
+  user: UserRound,
+  brush: Brush,
 };

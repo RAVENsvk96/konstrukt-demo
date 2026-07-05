@@ -11,11 +11,11 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("#");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[#E6DED2] bg-[#F7F5F2]/90 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Logo />
 
-        <div className="hidden items-center gap-8 text-sm md:flex">
+        <div className="hidden items-center gap-8 text-sm font-medium md:flex">
           {navigation.map((item) => (
             <a
               key={item.label}
@@ -23,8 +23,8 @@ export default function Navbar() {
               onClick={() => setActiveSection(item.href)}
               className={`transition-colors duration-300 ${
                 activeSection === item.href
-                  ? "text-orange-500"
-                  : "text-zinc-300 hover:text-orange-500"
+                  ? "text-[#A7865A]"
+                  : "text-[#666666] hover:text-[#A7865A]"
               }`}
             >
               {item.label}
@@ -33,18 +33,15 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button
-            href="#kontakt"
-            className="px-5 py-2.5 text-sm"
-          >
-            Objednať
+          <Button href="#kontakt" className="px-5 py-2.5 text-sm">
+            Rezervovať
           </Button>
 
           <button
             type="button"
             aria-label={isOpen ? "Zatvoriť menu" : "Otvoriť menu"}
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-xl border border-zinc-800 p-2 text-zinc-300 md:hidden"
+            className="rounded-xl border border-[#E6DED2] bg-white p-2 text-[#111111] md:hidden"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -52,8 +49,8 @@ export default function Navbar() {
       </nav>
 
       {isOpen && (
-        <div className="border-t border-zinc-800 bg-zinc-950 px-6 py-4 md:hidden">
-          <div className="flex flex-col gap-4 text-sm">
+        <div className="border-t border-[#E6DED2] bg-[#F7F5F2] px-6 py-4 md:hidden">
+          <div className="flex flex-col gap-4 text-sm font-medium">
             {navigation.map((item) => (
               <a
                 key={item.label}
@@ -64,8 +61,8 @@ export default function Navbar() {
                 }}
                 className={`transition-colors duration-300 ${
                   activeSection === item.href
-                    ? "text-orange-500"
-                    : "text-zinc-300 hover:text-orange-500"
+                    ? "text-[#A7865A]"
+                    : "text-[#666666] hover:text-[#A7865A]"
                 }`}
               >
                 {item.label}
