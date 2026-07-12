@@ -2,10 +2,10 @@ import type { Company } from "@/types/company";
 
 export const company: Company = {
   // Branding
-  name: "AutoServis",
-  slogan: "Moderný autoservis v Nitre",
+  name: "Bloom Beauty Studio",
+  slogan: "Krása, ktorá rozkvitá",
   description:
-    "Moderný autoservis v Nitre. Výmena oleja, brzdy, pneuservis, diagnostika a ďalšie služby.",
+    "Moderné beauty štúdio v Nitre. Kozmetické ošetrenia, laminácia obočia, lash lifting, manikúra a profesionálna starostlivosť o vašu krásu.",
 
   // Location
   city: "Nitra",
@@ -14,18 +14,18 @@ export const company: Company = {
 
   // Contact
   phone: "+421 900 123 456",
-  email: "info@autoservis.sk",
+  email: "info@bloombeauty.sk",
 
   // Opening hours
-  openingHours: "Po – Pia • 08:00 – 17:00",
-  openingHoursSchema: ["Mo-Fr 08:00-17:00"],
+  openingHours: "Po – So • 09:00 – 19:00",
+  openingHoursSchema: ["Mo-Sa 09:00-19:00"],
 
   // Web
-  website: "https://autoservis-demo-beryl.vercel.app",
+  website: "https://bloom-beauty-demo.vercel.app",
   mapUrl: "https://www.google.com/maps?q=Nitra&output=embed",
 
   // Images
-  heroImage: "/images/hero.jpg",
+  heroImage: "/images/beauty-hero.jpg",
   logo: "/images/logo-navbar.png",
   ogImage: "/images/og-image.png",
 

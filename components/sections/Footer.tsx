@@ -3,46 +3,84 @@ import { company } from "@/content/company";
 import { navigation } from "@/content/navigation";
 
 export default function Footer() {
-  return (
-    <footer className="border-t border-[#E6DED2] bg-[#F7F5F2]">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-3">
-        <div>
-          <Logo className="h-20 w-auto" priority={false} />
+  const currentYear = new Date().getFullYear();
+  const phoneHref = `tel:${company.phone.replace(/\s/g, "")}`;
+  const emailHref = `mailto:${company.email}`;
 
-          <p className="mt-4 max-w-sm text-sm leading-6 text-[#666666]">
+  return (
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
+        <div>
+          <Logo />
+
+          <p className="mt-6 max-w-md text-sm leading-7 text-muted">
             {company.description}
           </p>
+
+          <a
+            href="#kontakt"
+            className="mt-6 inline-flex text-sm font-semibold text-primary transition-colors hover:text-primary-hover"
+          >
+            Rezervovať termín
+          </a>
         </div>
 
         <div>
-          <h3 className="font-semibold text-[#111111]">Navigácia</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground">
+            Navigácia
+          </h3>
 
-          <div className="mt-4 flex flex-col gap-2 text-sm text-[#666666]">
+          <nav
+            aria-label="Navigácia v pätičke"
+            className="mt-6 flex flex-col items-start gap-3 text-sm text-muted"
+          >
             {navigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="transition hover:text-[#A7865A]"
+                className="transition-colors duration-300 hover:text-primary"
               >
                 {item.label}
               </a>
             ))}
-          </div>
+          </nav>
         </div>
 
         <div>
-          <h3 className="font-semibold text-[#111111]">Kontakt</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-foreground">
+            Kontakt
+          </h3>
 
-          <div className="mt-4 space-y-2 text-sm leading-6 text-[#666666]">
+          <div className="mt-6 flex flex-col items-start gap-3 text-sm leading-6 text-muted">
             <p>{company.address}</p>
-            <p>{company.phone}</p>
-            <p>{company.email}</p>
+
+            <a
+              href={phoneHref}
+              className="transition-colors duration-300 hover:text-primary"
+            >
+              {company.phone}
+            </a>
+
+            <a
+              href={emailHref}
+              className="break-all transition-colors duration-300 hover:text-primary"
+            >
+              {company.email}
+            </a>
+
+            <p>{company.openingHours}</p>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-[#E6DED2] px-6 py-4 text-center text-sm text-[#666666]">
-        © 2026 {company.name}. Všetky práva vyhradené.
+      <div className="border-t border-border px-6 py-5">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 text-center text-xs text-muted sm:flex-row sm:text-left">
+          <p>
+            © {currentYear} {company.name}. Všetky práva vyhradené.
+          </p>
+
+          <p>Krása, ktorá rozkvitá.</p>
+        </div>
       </div>
     </footer>
   );

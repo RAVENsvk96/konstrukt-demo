@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Autoservis Demo <onboarding@resend.dev>",
+      from: "Bloom Beauty Studio <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL!,
       subject: `Nová správa z webu od ${name}`,
       replyTo: email,

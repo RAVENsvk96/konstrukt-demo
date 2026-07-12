@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://autoservis-demo-beryl.vercel.app/sitemap.xml",
+    sitemap: "https://bloom-beauty-demo.vercel.app/sitemap.xml",
   };
 }

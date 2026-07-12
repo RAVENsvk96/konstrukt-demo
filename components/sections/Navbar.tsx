@@ -11,20 +11,23 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("#");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E6DED2] bg-[#F7F5F2]/90 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
+      <nav
+        className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+        aria-label="Hlavná navigácia"
+      >
         <Logo />
 
         <div className="hidden items-center gap-8 text-sm font-medium md:flex">
           {navigation.map((item) => (
             <a
-              key={item.label}
+              key={item.href}
               href={item.href}
               onClick={() => setActiveSection(item.href)}
               className={`transition-colors duration-300 ${
                 activeSection === item.href
-                  ? "text-[#A7865A]"
-                  : "text-[#666666] hover:text-[#A7865A]"
+                  ? "text-primary"
+                  : "text-muted hover:text-primary"
               }`}
             >
               {item.label}
@@ -33,41 +36,60 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button href="#kontakt" className="px-5 py-2.5 text-sm">
+          <Button
+            href="#kontakt"
+            className="hidden px-5 py-2.5 text-sm sm:inline-flex"
+          >
             Rezervovať
           </Button>
 
           <button
             type="button"
             aria-label={isOpen ? "Zatvoriť menu" : "Otvoriť menu"}
-            onClick={() => setIsOpen(!isOpen)}
-            className="rounded-xl border border-[#E6DED2] bg-white p-2 text-[#111111] md:hidden"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsOpen((current) => !current)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-surface text-foreground transition-all duration-300 hover:border-primary/50 hover:text-primary md:hidden"
           >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </nav>
 
       {isOpen && (
-        <div className="border-t border-[#E6DED2] bg-[#F7F5F2] px-6 py-4 md:hidden">
-          <div className="flex flex-col gap-4 text-sm font-medium">
+        <div
+          id="mobile-navigation"
+          className="border-t border-border bg-background px-6 py-5 md:hidden"
+        >
+          <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm font-medium">
             {navigation.map((item) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 onClick={() => {
                   setActiveSection(item.href);
                   setIsOpen(false);
                 }}
-                className={`transition-colors duration-300 ${
+                className={`rounded-lg px-3 py-2 transition-colors duration-300 ${
                   activeSection === item.href
-                    ? "text-[#A7865A]"
-                    : "text-[#666666] hover:text-[#A7865A]"
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted hover:bg-primary/5 hover:text-primary"
                 }`}
               >
                 {item.label}
               </a>
             ))}
+
+            <Button
+              href="#kontakt"
+              className="mt-2 w-full py-3 text-sm"
+            >
+              Rezervovať termín
+            </Button>
           </div>
         </div>
       )}
