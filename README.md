@@ -132,4 +132,4 @@ More variants coming soon.
 
 ## 📄 License
 
-This project is intended as a personal starter kit and portfolio foundation.
+This project is intended as a personal starter kit and portfolio foundation.# konstrukt-demo
