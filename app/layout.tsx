@@ -1,4 +1,7 @@
 import { company } from "@/content/company";
+import { site } from "@/content/site";
+import { themes } from "@/styles/themes";
+import { themeToCssVariables } from "@/styles/themes/to-css-variables";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -13,24 +16,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const theme = themes[site.variant];
+
+if (!theme) {
+  throw new Error(`Missing theme for variant: ${site.variant}`);
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(company.website),
 
   title: {
-    default: `${company.name} | Beauty štúdio v ${company.city}`,
+    default: site.seo.title,
     template: `%s | ${company.name}`,
   },
 
-  description: company.description,
-
-  keywords: [
-    "beauty štúdio Nitra",
-    "kozmetické ošetrenia Nitra",
-    "lash lifting Nitra",
-    "laminácia obočia Nitra",
-    "manikúra Nitra",
-    "profesionálny make-up Nitra",
-  ],
+  description: site.seo.description,
+  keywords: site.seo.keywords,
 
   authors: [{ name: company.name }],
   creator: company.name,
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: `${company.name} | Beauty štúdio v ${company.city}`,
-    description: company.description,
+    title: site.seo.title,
+    description: site.seo.description,
     url: company.website,
     siteName: company.name,
     images: [
@@ -50,17 +51,17 @@ export const metadata: Metadata = {
         url: company.ogImage,
         width: 1200,
         height: 630,
-        alt: `${company.name} – beauty štúdio v ${company.city}`,
+        alt: `${company.name} – ${company.slogan}`,
       },
     ],
-    locale: "sk_SK",
+    locale: site.locale,
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: `${company.name} | Beauty štúdio v ${company.city}`,
-    description: company.description,
+    title: site.seo.title,
+    description: site.seo.description,
     images: [company.ogImage],
   },
 
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fffaf8",
+  themeColor: theme.colors.background,
   colorScheme: "light",
 };
 
@@ -89,7 +90,9 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="sk"
+      lang={site.language}
+      data-variant={site.variant}
+      style={themeToCssVariables(theme)}
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">

@@ -6,6 +6,7 @@ import Footer from "@/components/sections/Footer";
 import {
   Hero,
   Services,
+  Process,
   WhyUs,
   Gallery,
   Reviews,
@@ -21,6 +22,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Services />
+        {Process && <Process />}
         <WhyUs />
         <Gallery />
         <Reviews />

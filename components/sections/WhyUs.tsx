@@ -1,1 +1,0 @@
-export { WhyUs as default } from "@/components/variants";

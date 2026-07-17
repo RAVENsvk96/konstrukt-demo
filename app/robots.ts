@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { company } from "@/content/company";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://bloom-beauty-demo.vercel.app/sitemap.xml",
+
+    sitemap: `${company.website}/sitemap.xml`,
   };
 }

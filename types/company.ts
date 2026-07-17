@@ -27,7 +27,7 @@ export interface Company {
   socialLinks: SocialLink[];
 }
 
-export interface SocialLink {
+  interface SocialLink {
   platform: string;
   label: string;
   href: string;

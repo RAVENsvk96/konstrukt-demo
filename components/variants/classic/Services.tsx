@@ -1,53 +1,52 @@
 "use client";
 
+import Container from "@/components/layout/Container";
+import SectionHeading from "@/components/layout/SectionHeading";
+import FadeIn from "@/components/motion/FadeIn";
+import Stagger from "@/components/motion/Stagger";
+import StaggerItem from "@/components/motion/StaggerItem";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import SectionHeading from "@/components/layout/SectionHeading";
-
 import { services } from "@/content/services";
 import { icons } from "@/lib/icons";
 
-import { motion } from "framer-motion";
-
 export default function Services() {
   return (
-    <section id="sluzby" className="mx-auto max-w-6xl px-6 py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <SectionHeading badge="Služby" title="Naše služby" />
+    <section id="sluzby" className="bg-background py-20">
+      <Container>
+        <FadeIn y={30} duration={0.6}>
+          <SectionHeading badge="Služby" title="Naše služby" />
+        </FadeIn>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, index) => {
+        <Stagger
+          staggerChildren={0.1}
+          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {services.map((service) => {
             const Icon = icons[service.icon];
 
             return (
-              <motion.div
+              <StaggerItem
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                duration={0.5}
+                y={30}
                 className="h-full"
               >
-                <Card className="flex h-full flex-col p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10">
-                    <Icon className="h-6 w-6 text-orange-500" />
+                <Card className="flex h-full flex-col p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
 
-                  <h3 className="text-lg font-semibold">
+                  <h3 className="text-lg font-semibold text-foreground">
                     {service.title}
                   </h3>
 
-                  <p className="mt-3 flex-1 text-sm leading-6 text-zinc-400">
+                  <p className="mt-3 flex-1 text-sm leading-6 text-muted">
                     {service.description}
                   </p>
 
                   {service.price && (
-                    <p className="mt-6 font-semibold text-orange-500">
+                    <p className="mt-6 font-semibold text-primary">
                       {service.price}
                     </p>
                   )}
@@ -56,11 +55,11 @@ export default function Services() {
                     Objednať
                   </Button>
                 </Card>
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </div>
-      </motion.div>
+        </Stagger>
+      </Container>
     </section>
   );
 }

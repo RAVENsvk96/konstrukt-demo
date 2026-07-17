@@ -42,20 +42,21 @@ export default function BeautyHero() {
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button
-              href="#kontakt"
-              className="px-7 py-3.5 text-base"
-            >
+            <Button href="#kontakt">
               {hero.primaryButton}
             </Button>
 
-            <a
+            <Button
               href={phoneHref}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 py-3.5 text-base font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary hover:shadow-lg"
+              variant="secondary"
+              className="gap-2"
             >
-              <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
+              <Phone
+                className="h-5 w-5 text-primary"
+                aria-hidden="true"
+              />
               {hero.secondaryButton}
-            </a>
+            </Button>
           </div>
 
           <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:flex-wrap">
@@ -67,7 +68,10 @@ export default function BeautyHero() {
                   key={item.text}
                   className="inline-flex items-center gap-3 rounded-full border border-border bg-surface/80 px-5 py-3.5 text-sm font-medium text-muted shadow-sm backdrop-blur"
                 >
-                  <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                  <Icon
+                    className="h-4 w-4 text-primary"
+                    aria-hidden="true"
+                  />
                   <span>{item.text}</span>
                 </div>
               );

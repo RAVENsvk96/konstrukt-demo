@@ -1,8 +1,11 @@
 "use client";
 
+import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/layout/SectionHeading";
+import FadeIn from "@/components/motion/FadeIn";
+import Stagger from "@/components/motion/Stagger";
+import StaggerItem from "@/components/motion/StaggerItem";
 import { company } from "@/content/company";
-import { motion } from "framer-motion";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactBarber() {
@@ -38,21 +41,24 @@ export default function ContactBarber() {
   ];
 
   return (
-    <section id="kontakt" className="bg-[#F7F5F2] px-6 py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          badge="Kontakt"
-          title="Rezervujte si svoj termín."
-          description="Zavolajte nám alebo nám napíšte. Radi vám pomôžeme nájsť najbližší voľný termín."
-        />
+    <section id="kontakt" className="bg-background py-24 lg:py-32">
+      <Container>
+        <FadeIn>
+          <SectionHeading
+            badge="Kontakt"
+            title="Rezervujte si svoj termín."
+            description="Zavolajte nám alebo nám napíšte. Radi vám pomôžeme nájsť najbližší voľný termín."
+          />
+        </FadeIn>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="rounded-[2rem] border border-[#E6DED2] bg-white p-7"
+        <Stagger
+          staggerChildren={0.08}
+          className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]"
+        >
+          <StaggerItem
+            duration={0.45}
+            y={18}
+            className="rounded-card border border-border bg-surface p-7"
           >
             <div className="space-y-6">
               {items.map((item) => {
@@ -60,24 +66,28 @@ export default function ContactBarber() {
 
                 return (
                   <div key={item.label} className="flex gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#A7865A]/10">
-                      <Icon className="h-5 w-5 text-[#A7865A]" />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
 
                     <div>
-                      <p className="text-sm text-[#666666]">{item.label}</p>
+                      <p className="text-sm text-muted">{item.label}</p>
 
                       {item.href ? (
                         <a
                           href={item.href}
                           target={item.external ? "_blank" : undefined}
-                          rel={item.external ? "noopener noreferrer" : undefined}
-                          className="font-semibold text-[#111111] transition hover:text-[#A7865A]"
+                          rel={
+                            item.external
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                          className="font-semibold text-surface-foreground transition-colors hover:text-primary"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="font-semibold text-[#111111]">
+                        <p className="font-semibold text-surface-foreground">
                           {item.value}
                         </p>
                       )}
@@ -86,14 +96,12 @@ export default function ContactBarber() {
                 );
               })}
             </div>
-          </motion.div>
+          </StaggerItem>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.08 }}
-            className="overflow-hidden rounded-[2rem] border border-[#E6DED2] bg-white p-3"
+          <StaggerItem
+            duration={0.45}
+            y={18}
+            className="overflow-hidden rounded-card border border-border bg-surface p-3"
           >
             <iframe
               src={company.mapUrl}
@@ -102,9 +110,9 @@ export default function ContactBarber() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </motion.div>
-        </div>
-      </div>
+          </StaggerItem>
+        </Stagger>
+      </Container>
     </section>
   );
 }

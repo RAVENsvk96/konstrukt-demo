@@ -1,14 +1,33 @@
 import type { MetadataRoute } from "next";
+import { company } from "@/content/company";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://bloom-beauty-demo.vercel.app";
+  const lastModified = new Date();
 
   return [
     {
-      url: baseUrl,
-      lastModified: new Date(),
+      url: company.website,
+      lastModified,
       changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: `${company.website}/#sluzby`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${company.website}/#recenzie`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${company.website}/#kontakt`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
   ];
 }

@@ -1,4 +1,4 @@
-export type ServiceIcon =
+type ServiceIcon =
   | "wrench"
   | "disc"
   | "circle-dot"

@@ -6,9 +6,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
 
-    if (!name || !email || !message) {
+    const { name, email, subject, message } = body;
+
+    if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: "Vyplňte všetky polia." },
         { status: 400 }
@@ -16,13 +17,19 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Bloom Beauty Studio <onboarding@resend.dev>",
+      from: process.env.CONTACT_FROM!,
       to: process.env.CONTACT_EMAIL!,
-      subject: `Nová správa z webu od ${name}`,
+      subject: `Nový dopyt z webu • ${subject}`,
       replyTo: email,
       text: `
-Meno: ${name}
-Email: ${email}
+Meno:
+${name}
+
+Email:
+${email}
+
+Predmet:
+${subject}
 
 Správa:
 ${message}

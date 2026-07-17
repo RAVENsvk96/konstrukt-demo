@@ -1,9 +1,11 @@
 "use client";
 
+import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/layout/SectionHeading";
+import FadeIn from "@/components/motion/FadeIn";
+import Button from "@/components/ui/Button";
 import { company } from "@/content/company";
 import { contact } from "@/content/variants/beauty";
-import { motion } from "framer-motion";
 import {
   Clock,
   Mail,
@@ -50,17 +52,12 @@ export default function BeautyContact() {
   return (
     <section
       id="kontakt"
-      className="relative overflow-hidden bg-surface/50 px-6 py-24"
+      className="relative overflow-hidden bg-surface/50 py-24"
     >
       <div className="absolute bottom-0 right-0 -z-10 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
 
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.55 }}
-        >
+      <Container>
+        <FadeIn amount={0.2}>
           <SectionHeading
             badge={contact.badge}
             title={contact.title}
@@ -124,21 +121,15 @@ export default function BeautyContact() {
               </div>
 
               <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href={phoneHref}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20"
-                >
+                <Button href={phoneHref} className="gap-2">
                   <Phone className="h-5 w-5" aria-hidden="true" />
                   Zavolať
-                </a>
+                </Button>
 
-                <a
-                  href={emailHref}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-7 py-3.5 text-base font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
-                >
+                <Button href={emailHref} variant="secondary" className="gap-2">
                   <Mail className="h-5 w-5" aria-hidden="true" />
                   Napísať email
-                </a>
+                </Button>
               </div>
             </div>
 
@@ -164,8 +155,8 @@ export default function BeautyContact() {
               {contact.mapLinkLabel}
             </a>
           </div>
-        </motion.div>
-      </div>
+        </FadeIn>
+      </Container>
     </section>
   );
 }

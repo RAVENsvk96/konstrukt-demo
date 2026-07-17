@@ -1,20 +1,19 @@
 "use client";
 
+import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/layout/SectionHeading";
+import FadeIn from "@/components/motion/FadeIn";
 import { services } from "@/content/variants/beauty";
-import { motion } from "framer-motion";
+import Button from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
+import Stagger from "@/components/motion/Stagger";
+import StaggerItem from "@/components/motion/StaggerItem";
 
 export default function BeautyServices() {
   return (
-    <section id="sluzby" className="bg-surface/50 px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.55 }}
-        >
+    <section id="sluzby" className="bg-surface/50 py-24">
+      <Container>
+        <FadeIn>
           <SectionHeading
             badge="Naše služby"
             title="Starostlivosť vytvorená pre vás."
@@ -22,23 +21,16 @@ export default function BeautyServices() {
             centered
           />
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => {
               const Icon = service.icon;
               const isFeatured = index === 0;
 
               return (
-                <motion.article
+                <StaggerItem
                   key={service.title}
-                  initial={{ opacity: 0, y: 22 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{
-                    duration: 0.45,
-                    delay: index * 0.07,
-                  }}
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 ${
-                    isFeatured ? "md:col-span-2 lg:col-span-2" : ""
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-border bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 ${
+                  isFeatured ? "md:col-span-2 lg:col-span-2" : ""
                   }`}
                 >
                   {isFeatured && (
@@ -46,7 +38,7 @@ export default function BeautyServices() {
                   )}
 
                   <div className="relative flex items-start justify-between gap-6">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </div>
 
@@ -83,21 +75,18 @@ export default function BeautyServices() {
                       aria-hidden="true"
                     />
                   </a>
-                </motion.article>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
 
           <div className="mt-14 text-center">
-            <a
-              href="#kontakt"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-7 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20"
-            >
+            <Button href="#kontakt">
               Rezervovať termín
-            </a>
+            </Button>
           </div>
-        </motion.div>
-      </div>
+        </FadeIn>
+      </Container>
     </section>
   );
 }

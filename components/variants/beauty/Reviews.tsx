@@ -33,7 +33,7 @@ export default function BeautyReviews() {
                   duration: 0.45,
                   delay: index * 0.08,
                 }}
-                className="group relative flex h-full flex-col rounded-[2rem] border border-border bg-surface p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-lg hover:shadow-primary/10"
+                className="group relative flex h-full flex-col rounded-card border border-border bg-surface p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-lg hover:shadow-primary/10"
               >
                 <Quote
                   className="absolute right-7 top-7 h-9 w-9 text-primary/10"

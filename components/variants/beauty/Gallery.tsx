@@ -1,8 +1,11 @@
 "use client";
 
+import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/layout/SectionHeading";
+import FadeIn from "@/components/motion/FadeIn";
+import Stagger from "@/components/motion/Stagger";
+import StaggerItem from "@/components/motion/StaggerItem";
 import { gallery } from "@/content/variants/beauty";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function BeautyGallery() {
@@ -15,17 +18,12 @@ export default function BeautyGallery() {
   return (
     <section
       id="galeria"
-      className="relative overflow-hidden bg-background px-6 py-24"
+      className="relative overflow-hidden bg-background py-24"
     >
       <div className="absolute right-0 top-1/3 -z-10 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
 
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.55 }}
-        >
+      <Container>
+        <FadeIn>
           <SectionHeading
             badge="Galéria"
             title="Priestor pre krásu a oddych."
@@ -34,11 +32,7 @@ export default function BeautyGallery() {
           />
 
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-[1.15fr_0.85fr]">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.55 }}
+            <FadeIn
               className="group overflow-hidden rounded-[2.5rem] border border-border bg-surface p-2 shadow-lg shadow-primary/5"
             >
               <div className="relative h-full overflow-hidden rounded-[2rem]">
@@ -53,19 +47,17 @@ export default function BeautyGallery() {
 
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent opacity-70" />
               </div>
-            </motion.div>
+            </FadeIn>
 
-            <div className="grid gap-6">
-              {secondaryImages.map((item, index) => (
-                <motion.div
+            <Stagger
+              staggerChildren={0.08}
+              className="grid gap-6"
+            >
+              {secondaryImages.map((item) => (
+                <StaggerItem
                   key={item.image}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.08,
-                  }}
+                  duration={0.5}
+                  y={24}
                   className="group overflow-hidden rounded-[2rem] border border-border bg-surface p-2 shadow-lg shadow-primary/5"
                 >
                   <div className="relative h-full overflow-hidden rounded-[1.5rem]">
@@ -80,12 +72,12 @@ export default function BeautyGallery() {
 
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-60" />
                   </div>
-                </motion.div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
-        </motion.div>
-      </div>
+        </FadeIn>
+      </Container>
     </section>
   );
 }

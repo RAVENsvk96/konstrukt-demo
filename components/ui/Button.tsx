@@ -1,34 +1,57 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+type ButtonVariant = "primary" | "secondary" | "ghost";
+
 type ButtonProps = {
   href: string;
   children: ReactNode;
   className?: string;
+  variant?: ButtonVariant;
+};
+
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: `
+    bg-primary
+    text-primary-foreground
+    hover:bg-primary-hover
+    hover:shadow-lg
+    hover:shadow-primary/20
+  `,
+  secondary: `
+    border
+    border-border
+    bg-surface
+    text-foreground
+    hover:border-primary/50
+    hover:text-primary
+  `,
+  ghost: `
+    bg-transparent
+    text-primary
+    hover:bg-primary/10
+    hover:text-primary-hover
+  `,
 };
 
 export default function Button({
   href,
   children,
   className = "",
+  variant = "primary",
 }: ButtonProps) {
   return (
     <Link
       href={href}
       className={`
         inline-flex items-center justify-center
-        rounded-xl
+        rounded-button
         whitespace-nowrap
-        bg-primary
         px-7 py-3.5
         text-base font-semibold
-        text-white
         transition-all duration-300 ease-out
 
         hover:-translate-y-0.5
-        hover:bg-primary-hover
-        hover:shadow-lg
-        hover:shadow-primary/20
 
         active:translate-y-0
         active:scale-[0.98]
@@ -38,9 +61,7 @@ export default function Button({
         focus-visible:ring-primary
         focus-visible:ring-offset-2
 
-        disabled:pointer-events-none
-        disabled:opacity-60
-
+        ${variantClasses[variant]}
         ${className}
       `}
     >
