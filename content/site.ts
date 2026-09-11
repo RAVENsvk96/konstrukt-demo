@@ -1,6 +1,6 @@
 // content/site.ts
 
-const variants = [
+export const variants = [
   "classic",
   "clinic",
   "barber",

@@ -1,5 +1,6 @@
-import Contact from "@/components/sections/Contact";
-
-export default function ConstructionContact() {
-  return <Contact />;
-}
+"use client";
+import Container from "@/components/layout/Container";
+import SectionHeading from "@/components/layout/SectionHeading";
+import { motion } from "framer-motion";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
+export default function ConstructionContact() { return <section id="kontakt" className="bg-background py-20 sm:py-24"><Container><SectionHeading badge="Demo projekt" title="Páči sa vám tento stavebný koncept?" description="Toto je ukážka dizajnu a vývoja, nie stránka skutočnej spoločnosti. Dopyty ani osobné údaje tu neprijímame." centered /><motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-14 rounded-2xl border border-border bg-surface p-8 text-center sm:p-12"><div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10"><ShieldCheck className="h-6 w-6 text-primary" /></div><h3 className="mt-6 text-2xl font-bold text-foreground">Bez fiktívnych dopytov a kontaktov</h3><p className="mx-auto mt-4 max-w-2xl leading-7 text-muted">Telefón, email, adresa, mapa a formulár sú v demo verzii zámerne vypnuté. Ak hľadáte autora projektu, pokračujte na jeho portfólio.</p><a href="https://www.samuelzeliska.sk/#kontakt" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center justify-center gap-2 rounded-button bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:bg-primary-hover">Kontaktovať autora <ArrowUpRight className="h-5 w-5" /></a></motion.div></Container></section>; }
